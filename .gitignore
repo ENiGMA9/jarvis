@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+
+#custom ignore
+config/db.js
+auth.json
