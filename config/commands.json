@@ -2,7 +2,7 @@
   "general":{
     "argsDelimitator":" ",
     "sentenceDelimitator":"'",
-    "cmdPrefix":"-",
+    "cmdPrefix":"jarvis,",
     "superadmin":{
       "name":"ENiGMA",
       "discriminator":"6182"
