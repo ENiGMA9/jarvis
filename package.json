@@ -5,8 +5,8 @@
   "main": "jarvis-exe.js",
   "author": "ENiGMA",
   "dependencies": {
-    "discord.io": "github:woor/discord.io#gateway_v6",
-    "mongoose": "*",
+    "discord.io": "*",
+    "mongoose": "^5.4.16",
     "winston": "*"
   },
   "devDependencies": {},

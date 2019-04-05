@@ -64,3 +64,4 @@ typings/
 #custom ignore
 config/db.js
 auth.json
+auth.js

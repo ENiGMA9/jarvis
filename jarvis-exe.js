@@ -1,30 +1,30 @@
 const Discord = require('discord.io');
 const logger = require('winston');
 const mongoose = require("mongoose");
-const auth = require('./auth.json');
+const auth = require('./auth.js');
 const MessageManager = require('./managers/MessageManager');
 
 // Configure logger settings
 logger.remove(logger.transports.Console);
-logger.add(logger.transports.Console, {
-    colorize: true        //We want colorized output
-});
-logger.level = 'debug';  //Set logger's logging level :)
+logger.configure({ transports: [new logger.transports.File({ filename: 'logfile.log' }) ]});
+logger.level = 'debug';
 
 
-const config = require('./config/db'); // Grab the database config file
+
 // Initialize database connection
+//const config = require('./config/db'); 
+
 mongoose.Promise = global.Promise;
 /*mongoose.connect(config.database)
     .then(() => console.log("Mongo connected..."))
     .catch(err => console.log(err));*/
 
+
 // Initialize Discord Bot
 global.bot = new Discord.Client({
-   token: auth.token,  //The token is taken from auth.json
+   token: auth.token,  
    autorun: true
 });
-
 
 // When bot finishes init
 bot.on('ready', function (evt) {
@@ -35,8 +35,8 @@ bot.on('ready', function (evt) {
 
 // Setting bot's discord rich presence
 bot.setPresence({
-    game:{ //Only need the game argument for now, there are alot more supported by the API
-        name:"Scrie $help pentru comenzi"
+    game:{
+        name:"AVENGERS ENDGAME."
     }
 
 })
@@ -45,10 +45,6 @@ bot.setPresence({
 //When the bot reads a message, either a message from the channel or direct message
 bot.on('message', function (user, userID, channelID, message, evt) {
 
-
-    //We assemble a new packet containing all the data we know so we can pass it around easily
     let packet = {user, userID, channelID, message, evt};
-
-    //We call the message parser and pass the newly created packet
     MessageManager.parseMessage(packet);
 });

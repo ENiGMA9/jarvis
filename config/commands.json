@@ -1,18 +1,28 @@
 {
-  "general":{
-    "argsDelimitator":" ",
-    "sentenceDelimitator":"'",
-    "cmdPrefix":"jarvis,",
-    "superadmin":{
-      "name":"ENiGMA",
-      "discriminator":"6182"
+  "general": {
+    "sentenceDelimitator": " ",
+    "cmdPrefix": "jarvis,",
+    "superadmin": {
+      "name": "ENiGMA",
+      "discriminator": "6182"
     }
   },
-  "commands":{
-    "source":{
-      "min":0,
-      "max":0,
-      "target":"Controller->Method"
+  "commands": {
+    "ping": {
+      "words": [
+        {
+          "word": "ping",
+          "caseSensitive": "false",
+          "branch":"1"
+        },
+        {
+          "word": "pong",
+          "caseSensitive": "false",
+          "branch":"2"
+        }
+      ],
+      "sequential": "true",
+      "target": "Controller->Method"
     }
   }
 }
