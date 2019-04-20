@@ -1,6 +1,6 @@
 const Discord = require('discord.io');
 const logger = require('winston');
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const auth = require('./auth.js');
 const MessageManager = require('./managers/MessageManager');
 
@@ -27,14 +27,14 @@ global.bot = new Discord.Client({
 });
 
 // When bot finishes init
-bot.on('ready', function (evt) {
-    logger.info('Connected');
-    logger.info('Logged in as: ');
-    logger.info(bot.username + ' - (' + bot.id + ')');
+global.bot.on('ready', function (evt) {
+    logger.info("Connected");
+    logger.info("Logged in as: ");
+    logger.info(bot.username + " - (" + bot.id + ")");
 });
 
 // Setting bot's discord rich presence
-bot.setPresence({
+global.bot.setPresence({
     game:{
         name:"AVENGERS ENDGAME."
     }
@@ -43,7 +43,7 @@ bot.setPresence({
 
 
 //When the bot reads a message, either a message from the channel or direct message
-bot.on('message', function (user, userID, channelID, message, evt) {
+global.bot.on('message', function (user, userID, channelID, message, evt) {
 
     let packet = {user, userID, channelID, message, evt};
     MessageManager.parseMessage(packet);

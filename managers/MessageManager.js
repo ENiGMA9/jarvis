@@ -1,4 +1,4 @@
-import Commands from "../config/commands.json"; 
+import Commands from '../config/commands.json'; 
 import logger from 'winston';
 
 
@@ -17,8 +17,9 @@ export function parseMessage (packet) {
         message: packet.message.toUpperCase()
     });
 
-    if(packet.message.substring(0, 7).toLowerCase() !== general.cmdPrefix) // We check if the first character is our choosen prefix
-        return 0; // We exit this if not
+    if(packet.message.substring(0, 7).toLowerCase() !== general.cmdPrefix){ // We check if the first character is our choosen prefix
+        return 0;
+    } // We exit this if not
 
     let args = packet.message.substring(1).split(' '); //We grab all words in the message as argument except the first character which should be the prefix
    
@@ -46,7 +47,7 @@ export function parseMessage (packet) {
         const method = split[1]; //The second one is the actual method within the controller
 
         logger.info(controller + method);
-        require("../controllers/"+controller)[method](packet,args); //Basically call the method pointed by the config and pass along our packet and splitted arguments
+        require('../controllers/'+controller)[method](packet,args); //Basically call the method pointed by the config and pass along our packet and splitted arguments
 
 
 

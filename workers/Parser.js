@@ -1,4 +1,4 @@
-import Commands from "../config/commands.json"; 
+import Commands from '../config/commands.json'; 
 
 
 
@@ -11,10 +11,10 @@ export function initCommands(){
     data.commands = {};
     data.words = {};
 
-    Commands.commands.forEach(command => {
+    Commands.commands.forEach((command) => {
 
 
-        command.words.forEach(word => {
+        command.words.forEach((word) => {
 
 
         })
