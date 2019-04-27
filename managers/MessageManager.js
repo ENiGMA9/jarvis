@@ -1,26 +1,29 @@
-import Commands from '../config/commands.json'; 
-import logger from 'winston';
+//import Commands from '../config/commands.json'; 
+const logger = require('winston');
 
 
 
-//The method that parses any message, takes in a packet with necessary data as follows:
+/**The method that parses any message, takes in a packet with necessary data as follows:
 //@user - username, not nick, not #
 //@userID - unique userID
 //@channelID - channel's ID within the GUILD
 //@message - the actual message
 //@evt - the raw event passed from the API
+*/
+exports.ParseMessage = function (packet) {
 
-export function parseMessage (packet) {
 
-    global.bot.sendMessage({
-        to: packet.channelID,
-        message: packet.message.toUpperCase()
-    });
+    //VALIDATION
+
+
+    //CHECK PREFIX, VALIDATION?
 
     if(packet.message.substring(0, 7).toLowerCase() !== general.cmdPrefix){ // We check if the first character is our choosen prefix
         return 0;
     } // We exit this if not
 
+
+    //REPLACE THIS WITH LEXICON
     let args = packet.message.substring(1).split(' '); //We grab all words in the message as argument except the first character which should be the prefix
    
     //TO-DO: Insert lexicon call
@@ -47,11 +50,23 @@ export function parseMessage (packet) {
         const method = split[1]; //The second one is the actual method within the controller
 
         logger.info(controller + method);
+
+        //CHANGE WITH APPLY, spread in lines if linter is still wrong;
         require('../controllers/'+controller)[method](packet,args); //Basically call the method pointed by the config and pass along our packet and splitted arguments
-
-
-
-
     }
 
 }
+
+
+/**
+
+ * @param {String} message to be sent in full.
+ * @param {Number} optional channelID, if not specified, the bot will default to the config, default one.
+ */
+exports.sendMessage = function(channelID, message){
+    global.bot.sendMessage({
+        to: channelID,
+        message: message
+    });
+}
+

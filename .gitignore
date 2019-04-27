@@ -65,3 +65,4 @@ typings/
 config/db.js
 auth.json
 auth.js
+package-lock.json

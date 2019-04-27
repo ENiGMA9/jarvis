@@ -6,7 +6,6 @@
   "author": "ENiGMA",
   "dependencies": {
     "discord.io": "*",
-    "mongoose": "^5.4.16",
     "winston": "*"
   },
   "devDependencies": {},

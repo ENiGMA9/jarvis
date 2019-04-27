@@ -7,22 +7,20 @@
       "discriminator": "6182"
     }
   },
-  "commands": {
-    "ping": {
+  "commands": [
+    {
+      "name":"Ping-Pong",
+      "caseSensitive" : "false",
+      "sequential": "true",
+      "target": "Ping->Ping",
       "words": [
         {
-          "word": "ping",
-          "caseSensitive": "false",
-          "branch":"1"
+          "word": "ping"
         },
         {
-          "word": "pong",
-          "caseSensitive": "false",
-          "branch":"2"
+          "word": "pong"
         }
-      ],
-      "sequential": "true",
-      "target": "Controller->Method"
+      ]
     }
-  }
+  ]
 }
