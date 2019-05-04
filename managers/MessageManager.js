@@ -1,4 +1,4 @@
-//import Commands from '../config/commands.json'; 
+/*import Commands from '../config/commands.json';
 const logger = require('winston');
 
 
@@ -9,7 +9,7 @@ const logger = require('winston');
 //@channelID - channel's ID within the GUILD
 //@message - the actual message
 //@evt - the raw event passed from the API
-*/
+
 exports.ParseMessage = function (packet) {
 
 
@@ -25,7 +25,7 @@ exports.ParseMessage = function (packet) {
 
     //REPLACE THIS WITH LEXICON
     let args = packet.message.substring(1).split(' '); //We grab all words in the message as argument except the first character which should be the prefix
-   
+
     //TO-DO: Insert lexicon call
 
     if (commands[cmd] != null) { //We check to see if the command exists
@@ -62,11 +62,12 @@ exports.ParseMessage = function (packet) {
 
  * @param {String} message to be sent in full.
  * @param {Number} optional channelID, if not specified, the bot will default to the config, default one.
- */
+
 exports.sendMessage = function(channelID, message){
     global.bot.sendMessage({
         to: channelID,
-        message: message
+        message
     });
-}
+};
 
+*/

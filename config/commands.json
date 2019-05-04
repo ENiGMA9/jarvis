@@ -9,8 +9,8 @@
   },
   "commands": [
     {
-      "name":"Ping-Pong",
-      "caseSensitive" : "false",
+      "name": "Ping-Pong",
+      "caseSensitive": "false",
       "sequential": "true",
       "target": "Ping->Ping",
       "words": [
