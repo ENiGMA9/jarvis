@@ -1,4 +1,4 @@
-# Logs
+﻿# Logs
 logs
 *.log
 npm-debug.log*
@@ -61,7 +61,7 @@ typings/
 .next
 
 
-#custom ignore
+# custom ignore
 config/db.js
 auth.json
 auth.js
